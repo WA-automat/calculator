@@ -4,6 +4,8 @@
 #include "QLineEdit"
 #include "QPushButton"
 #include "QDebug"
+#include "QQueue"
+#include "QStack"
 
 CalculatorWindow::CalculatorWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,11 +16,11 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
     // 窗口UI
     this->setFixedSize(600, 600);
 
-    // TODO：LineEdit的更新并显示
+    // LineEdit的更新并显示
     ui->lineEdit->setText(str);
 
     // 设置事件
-    // TODO：各个按钮的点击事件（除等号）
+    // 各个按钮的点击事件（除等号）
     connect(ui->pushButton_one, &QPushButton::clicked, this, [this](){
         str += '1';
         ui->lineEdit->setText(str);
@@ -98,13 +100,16 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
         ui->lineEdit->setText(str);
     });
 
-//    connect(&this->str, &QString::, ui->lineEdit, &QLineEdit::setText);
-
     // TODO：按下等号进行计算并显示
     connect(ui->pushButton_equal, &QPushButton::clicked, this, [this](){
+        // TODO：进行计算
+
+        // TODO：补充后续字符串并显示
         str += '=';
+
         ui->lineEdit->setText(str);
 
+        // 清空字符串
         str = "";
     });
 }
