@@ -83,6 +83,15 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         lineEdit = new QLineEdit(widget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
+        lineEdit->setSizePolicy(sizePolicy);
+        lineEdit->setMinimumSize(QSize(0, 100));
+        lineEdit->setLayoutDirection(Qt::LeftToRight);
+        lineEdit->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineEdit->setReadOnly(true);
 
         verticalLayout->addWidget(lineEdit);
 
@@ -249,11 +258,11 @@ public:
 
         pushButton_equal = new QPushButton(widget_down);
         pushButton_equal->setObjectName(QString::fromUtf8("pushButton_equal"));
-        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(pushButton_equal->sizePolicy().hasHeightForWidth());
-        pushButton_equal->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(pushButton_equal->sizePolicy().hasHeightForWidth());
+        pushButton_equal->setSizePolicy(sizePolicy1);
         pushButton_equal->setMinimumSize(QSize(0, 150));
 
         horizontalLayout->addWidget(pushButton_equal);

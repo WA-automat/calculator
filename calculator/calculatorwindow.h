@@ -17,5 +17,8 @@ public:
 
 private:
     Ui::CalculatorWindow *ui;
+
+    // 主字符串：用于显示
+    QString str = "";
 };
 #endif // CALCULATORWINDOW_H

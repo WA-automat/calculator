@@ -88,6 +88,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
         lineEdit->setSizePolicy(sizePolicy);
+        lineEdit->setMinimumSize(QSize(0, 100));
         lineEdit->setLayoutDirection(Qt::LeftToRight);
         lineEdit->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit->setReadOnly(true);
