@@ -15,6 +15,8 @@ public:
     CalculatorWindow(QWidget *parent = nullptr);
     ~CalculatorWindow();
 
+    int calculate(QString str);
+
 private:
     Ui::CalculatorWindow *ui;
 

@@ -6,6 +6,7 @@
 #include "QDebug"
 #include "QQueue"
 #include "QStack"
+#include "QMessageBox"
 
 CalculatorWindow::CalculatorWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +15,8 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
     ui->setupUi(this);
 
     // 窗口UI
-    this->setFixedSize(600, 600);
+    this->setFixedSize(800, 800);
+//    this->setWindowTitle("计算器");
 
     // LineEdit的更新并显示
     ui->lineEdit->setText(str);
@@ -100,22 +102,45 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
         ui->lineEdit->setText(str);
     });
 
-    // TODO：按下等号进行计算并显示
+    // 按下等号进行计算并显示
     connect(ui->pushButton_equal, &QPushButton::clicked, this, [this](){
-        // TODO：进行计算
 
-        // TODO：补充后续字符串并显示
-        str += '=';
+        try {
+            // 进行计算
+            int ans = calculate(str);
 
-        ui->lineEdit->setText(str);
+            // 补充后续字符串并显示
+            str += '=';
+            str += QString::number(ans);
+            ui->lineEdit->setText(str);
 
-        // 清空字符串
-        str = "";
+            // 清空字符串
+            str = "";
+        }  catch (...) {
+            // 抛出错误时被接收
+            QMessageBox qMessageBox;
+            qMessageBox.setText("输入错误");
+            qMessageBox.exec();
+        }
+
     });
 }
 
 CalculatorWindow::~CalculatorWindow()
 {
     delete ui;
+}
+
+// 进行计算
+int CalculatorWindow::calculate(QString str)
+{
+    // 将字符串拆分为数字和运算符号
+
+    // 中缀表达式转换为后缀表达式
+
+    // 利用后缀表达式进行计算
+    int ans = 0;
+
+    return ans;
 }
 
