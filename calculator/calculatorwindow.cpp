@@ -125,6 +125,7 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
             str = "";
         }  catch (...) {
             // 抛出错误时被接收
+            str = "";
             QMessageBox qMessageBox;
             qMessageBox.setIcon(QMessageBox::Icon::Warning);
             qMessageBox.setText("输入错误");
@@ -142,7 +143,6 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
     // 美化
     QFont f("黑体", 12);
     ui->lineEdit->setFont(f);
-
 }
 
 CalculatorWindow::~CalculatorWindow()
@@ -229,7 +229,6 @@ double CalculatorWindow::calculate(QString str)
         }
         else if ('0' <= str[i] && str[i] <= '9') {
             if (i != 0 && str[i - 1] == ')') throw "ERROR";
-            if (i != 0 && str[i] == '0' && str[i - 1] == '/') throw "ERROR";
             num += str[i];
         }
         else throw "ERROR";

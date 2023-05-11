@@ -231,7 +231,16 @@
              </property>
              <item row="1" column="0">
               <widget class="QWidget" name="widget_5" native="true">
-               <layout class="QGridLayout" name="gridLayout_6" columnstretch="2,1,1">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_6" rowstretch="0" columnstretch="1,1,1" columnminimumwidth="2,1,1">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetDefaultConstraint</enum>
+                </property>
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
