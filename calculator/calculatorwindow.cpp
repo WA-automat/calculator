@@ -8,6 +8,7 @@
 #include "QStack"
 #include "QMessageBox"
 #include "QVector"
+#include "QAction"
 
 #define DEBUG
 
@@ -98,6 +99,8 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
         str += '.';
         ui->lineEdit->setText(str);
     });
+
+    // 退格
     connect(ui->pushButton_back, &QPushButton::clicked, this, [this](){
         if (str.size() != 0) {
             str = str.left(str.size() - 1);
@@ -128,6 +131,12 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
         }
 
     });
+
+    // 实现功能栏
+    connect(ui->actionCE, &QAction::triggered, ui->pushButton_CE, &QPushButton::click);
+    connect(ui->actionclose, &QAction::triggered, this, [this](){
+        this->close();
+    });
 }
 
 CalculatorWindow::~CalculatorWindow()
@@ -135,7 +144,7 @@ CalculatorWindow::~CalculatorWindow()
     delete ui;
 }
 
-// 进行计算
+// 进行计算：实现计算功能
 double CalculatorWindow::calculate(QString str)
 {
     // 将字符串拆分为数字和运算符号
