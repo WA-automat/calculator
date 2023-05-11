@@ -9,8 +9,9 @@
 #include "QMessageBox"
 #include "QVector"
 #include "QAction"
+#include "QFont"
 
-#define DEBUG
+#define RELEASE
 
 CalculatorWindow::CalculatorWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -26,7 +27,7 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
     ui->lineEdit->setText(str);
 
     // 设置事件
-    // 各个按钮的点击事件（除等号）
+    // 各个按钮的字符串附加事件（除等号）
     connect(ui->pushButton_one, &QPushButton::clicked, this, [this](){
         str += '1';
         ui->lineEdit->setText(str);
@@ -100,7 +101,7 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
         ui->lineEdit->setText(str);
     });
 
-    // 退格
+    // 退格事件
     connect(ui->pushButton_back, &QPushButton::clicked, this, [this](){
         if (str.size() != 0) {
             str = str.left(str.size() - 1);
@@ -137,6 +138,11 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
     connect(ui->actionclose, &QAction::triggered, this, [this](){
         this->close();
     });
+
+    // 美化
+    QFont f("黑体", 12);
+    ui->lineEdit->setFont(f);
+
 }
 
 CalculatorWindow::~CalculatorWindow()
@@ -156,7 +162,7 @@ double CalculatorWindow::calculate(QString str)
     // 存储单个数字字符串
     QString num = "";
 
-    // 存储全体字符串
+    // 存储全体数字字符串
     QVector<QString> arr;
 
     // 字符串分解
@@ -209,10 +215,8 @@ double CalculatorWindow::calculate(QString str)
             if (i != 0 && (str[i - 1] == ')' || str[i - 1] == '.' || (str[i - 1] >= '0' && str[i - 1] <= '9'))) throw "ERROR";
             if (i > 1 && (str[i - 1] == '+' || str[i - 1] == '-' || str[i - 1] == '*' || str[i - 1] == '/') &&
                     (str[i - 2] == '+' || str[i - 2] == '-' || str[i - 2] == '*' || str[i - 2] == '/')) throw "ERROR";
-//            arr.push_back(num);
             arr.push_back("(");
             st = true;
-//            num = "";
         }
         else if (str[i] == ')') {
             if (!st) throw "ERROR";
@@ -284,8 +288,6 @@ double CalculatorWindow::calculate(QString str)
     }
 
     // 利用后缀表达式进行计算
-    double ans = 0;
-
     for (auto p : que) {
         if (p.size() > 1) {
             stk.push(p);
