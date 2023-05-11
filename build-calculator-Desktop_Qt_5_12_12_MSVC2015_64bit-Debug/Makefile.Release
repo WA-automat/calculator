@@ -528,7 +528,27 @@ release\calculatorwindow.obj: ..\calculator\calculatorwindow.cpp ..\calculator\c
 		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtGui\qtouchdevice.h \
 		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qtabwidget.h \
 		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtGui\qicon.h \
-		ui_calculatorwindow.h
+		ui_calculatorwindow.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\QString \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\QLineEdit \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qlineedit.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qframe.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtGui\qtextcursor.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtGui\qtextformat.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtGui\qpen.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtGui\qtextoption.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\QPushButton \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qpushbutton.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qabstractbutton.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\QDebug \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\QQueue \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\qqueue.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\QStack \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\qstack.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\QMessageBox \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qmessagebox.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtWidgets\qdialog.h \
+		D:\qt_5.12.12_C++\5.12.12\msvc2015_64\include\QtCore\QVector
 
 release\moc_calculatorwindow.obj: release\moc_calculatorwindow.cpp 
 

@@ -10,11 +10,13 @@
 #define UI_CALCULATORWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -26,6 +28,8 @@ QT_BEGIN_NAMESPACE
 class Ui_CalculatorWindow
 {
 public:
+    QAction *actionCE;
+    QAction *actionclose;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout_2;
     QWidget *widget;
@@ -66,6 +70,7 @@ public:
     QPushButton *pushButton_three;
     QPushButton *pushButton_equal;
     QMenuBar *menubar;
+    QMenu *menu;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *CalculatorWindow)
@@ -73,6 +78,10 @@ public:
         if (CalculatorWindow->objectName().isEmpty())
             CalculatorWindow->setObjectName(QString::fromUtf8("CalculatorWindow"));
         CalculatorWindow->resize(800, 600);
+        actionCE = new QAction(CalculatorWindow);
+        actionCE->setObjectName(QString::fromUtf8("actionCE"));
+        actionclose = new QAction(CalculatorWindow);
+        actionclose->setObjectName(QString::fromUtf8("actionclose"));
         centralwidget = new QWidget(CalculatorWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
@@ -284,10 +293,17 @@ public:
         menubar = new QMenuBar(CalculatorWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 21));
+        menu = new QMenu(menubar);
+        menu->setObjectName(QString::fromUtf8("menu"));
         CalculatorWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(CalculatorWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         CalculatorWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menu->menuAction());
+        menu->addAction(actionCE);
+        menu->addSeparator();
+        menu->addAction(actionclose);
 
         retranslateUi(CalculatorWindow);
 
@@ -297,6 +313,16 @@ public:
     void retranslateUi(QMainWindow *CalculatorWindow)
     {
         CalculatorWindow->setWindowTitle(QApplication::translate("CalculatorWindow", "CalculatorWindow", nullptr));
+        actionCE->setText(QApplication::translate("CalculatorWindow", "\346\270\205\347\251\272", nullptr));
+        actionCE->setIconText(QApplication::translate("CalculatorWindow", "\346\270\205\351\233\266", nullptr));
+#ifndef QT_NO_TOOLTIP
+        actionCE->setToolTip(QApplication::translate("CalculatorWindow", "\346\270\205\351\233\266", nullptr));
+#endif // QT_NO_TOOLTIP
+        actionclose->setText(QApplication::translate("CalculatorWindow", "\351\200\200\345\207\272", nullptr));
+        actionclose->setIconText(QApplication::translate("CalculatorWindow", "\351\200\200\345\207\272", nullptr));
+#ifndef QT_NO_TOOLTIP
+        actionclose->setToolTip(QApplication::translate("CalculatorWindow", "\351\200\200\345\207\272", nullptr));
+#endif // QT_NO_TOOLTIP
         pushButton_back->setText(QApplication::translate("CalculatorWindow", "<-", nullptr));
         pushButton_CE->setText(QApplication::translate("CalculatorWindow", "CE", nullptr));
         pushButton_plus->setText(QApplication::translate("CalculatorWindow", "+", nullptr));
@@ -317,6 +343,7 @@ public:
         pushButton_mul->setText(QApplication::translate("CalculatorWindow", "*", nullptr));
         pushButton_three->setText(QApplication::translate("CalculatorWindow", "3", nullptr));
         pushButton_equal->setText(QApplication::translate("CalculatorWindow", "=", nullptr));
+        menu->setTitle(QApplication::translate("CalculatorWindow", "\345\212\237\350\203\275", nullptr));
     } // retranslateUi
 
 };

@@ -356,8 +356,39 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>功能</string>
+    </property>
+    <addaction name="actionCE"/>
+    <addaction name="separator"/>
+    <addaction name="actionclose"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionCE">
+   <property name="text">
+    <string>清空</string>
+   </property>
+   <property name="iconText">
+    <string>清零</string>
+   </property>
+   <property name="toolTip">
+    <string>清零</string>
+   </property>
+  </action>
+  <action name="actionclose">
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="iconText">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>退出</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
